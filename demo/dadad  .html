@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>react-demo1</title>
+	<script src="./build/react.js"></script>
+	<script src="./build/react-dom.js"></script>
+	<script src="./build/browser.min.js"></script>
+	<script src="./build/jquery.min.js"></script>
+</head>
+<body>
+	<div id='main'></div>
+	<script type="text/babel">
+		var MyMessage = React.createClass({
+			render : function(){
+				return <h1>Hello,{this.props.name},this is my first component</h1>;
+			}
+		});
+		ReactDOM.render(
+			<MyMessage name="Echo"></MyMessage>,
+			document.getElementById('main')
+			)
+	</script>
+</body>
+</html>

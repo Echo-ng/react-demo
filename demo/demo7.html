@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>react-demo1</title>
+	<script src="./build/react.js"></script>
+	<script src="./build/react-dom.js"></script>
+	<script src="./build/browser.min.js"></script>
+	<script src="./build/jquery.min.js"></script>
+</head>
+<body>
+	<div id='main'></div>
+	<script type="text/babel">
+		var  MyComponent= React.createClass({
+			handleClicked : function(){
+				this.refs.myTestInput.select();
+			},
+			//对prors做一些验证
+			// propTypes : {
+			// 	value  : React.PropTypes.string.isRequired,
+			// },
+			render : function(){
+				return (
+					<div>
+						<input type="text" ref="myTestInput" onClick={this.handleClicked}/>
+						<input type="button" value="Focus on the text input" onClick={this.handleClicked} />
+					</div>
+		
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<MyComponent />,
+			document.getElementById('main')
+			)
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>react-demo1</title>
+	<script src="./build/react.js"></script>
+	<script src="./build/react-dom.js"></script>
+	<script src="./build/browser.min.js"></script>
+	<script src="./build/jquery.min.js"></script>
+</head>
+<body>
+	<div id='main'></div>
+	<script type="text/babel">
+		var  MyComponent= React.createClass({
+			getInitialState: function(){
+				return {myState : false};
+			},
+			handleClicked : function(event){
+				this.setState({myState : !this.state.myState});
+			},
+			//对prors做一些验证
+			// propTypes : {
+			// 	value  : React.PropTypes.string.isRequired,
+			// },
+			render : function(){
+				var text = this.state.myState ? 'true' : 'false';
+				return (
+					<p onClick={this.handleClicked}>
+						current state is {text}
+					</p>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<MyComponent />,
+			document.getElementById('main')
+			)
+	</script>
+</body>
+</html>
